@@ -1,9 +1,9 @@
+# Imports important functions
 from typing import Dict, Union, Optional
+# Class definition
 class Computer:
-    # What attributes will it need?
     
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
+    # Constructor sets up the computer's attributes
     def __init__(self, description, processor_type, hard_drive_capacity, memory, operating_system, year_made, price):
         
         self.description = description
@@ -15,11 +15,11 @@ class Computer:
         self.price = price
 
 
-    # What methods will you need?
     def update_price(self, new_price):
-        self.price = new_price
+        self.price = new_price # Sets the price of the computer to the new price as defined in the refurbish method
 
     def refurbish(self, computer):
+        # Determines what price the computer should be set to based off of its year made
         if int(computer.year_made) < 2000:
             computer.update_price(0) # too old to sell, donation only
         elif int(computer.year_made) < 2012:
@@ -28,6 +28,6 @@ class Computer:
             computer.update_price(550) # discounted price on machines 4-to-10 year old machines
         else:
              computer.update_price(1000) # recent stuff
-
+        # Adjusts the operating system of the computer to a new one
         if self.operating_system is not None:
             computer.operating_system = "new_os" # update details after installing new OS
